@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1> {{info}}</h1>
-    <HowAreYou msg="How are you ?"/>
+    <HowAreYou msg="How are you ???"/>
 
   </div>
 </template>
