@@ -17,11 +17,14 @@ export default {
 
   },
   data : () => ({
-    info: null
+    info: null,
+    url: process.env.VUE_APP_API,
+
   }),
   mounted () {
+    let url = this.url+'/api/hello_world'
     axios
-    .get("http://localhost:8000/api/hello_world")
+    .get(url)
     .then(response => this.info = response.data)
   }
 }
