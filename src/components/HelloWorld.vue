@@ -1,8 +1,12 @@
 <template>
   <div class="hello">
-    <h1> {{info}}</h1>
+    <h1> Hello world </h1>
     <HowAreYou msg="How are you ???"/>
-
+    <ul>
+      <li v-for="test in infos" :key="test.id">
+        {{test.name}}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -17,15 +21,21 @@ export default {
 
   },
   data : () => ({
-    info: null,
+    infos: [],
     url: process.env.VUE_APP_API,
 
   }),
   mounted () {
-    let url = this.url+'/api/hello_world'
+    let url = this.url+'/api/tests'
+
     axios
     .get(url)
-    .then(response => this.info = response.data)
+    .then(response => {
+      console.log(response.data)
+      this.infos = response.data
+      console.log(this.infos)
+    })
+
   }
 }
 </script>
@@ -38,10 +48,6 @@ h3 {
 ul {
   list-style-type: none;
   padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
 }
 a {
   color: #42b983;
