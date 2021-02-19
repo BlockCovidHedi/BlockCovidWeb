@@ -1,16 +1,15 @@
 <template>
   <div>
+    <h2> Page d'inscription </h2>
     <form>
-      Nom:
-      Prenom:
-      Inami:
-      Email:
-      Mot de passe:
-      Telephone:
+      <p> Nom: </p>
+      <p> Prenom: </p>
+      <p> Inami: </p>
+      <p> Email:</p>
+      <p>Mot de passe: </p>
+      <p>Telephone: </p>
     </form>
   </div>
-<p> Page d'inscription </p>
-
 </template>
 
 <script>
