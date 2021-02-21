@@ -1,14 +1,31 @@
 <template>
   <div>
-    <h2>Bienvenue sur BlockCovid </h2>
-    <p> S'inscrire | Se connecter </p>
+    <h2>{{this.infos}} </h2>
+    <p> L'application qui vaincra le Covid-19</p>
   </div>
 </template>
 
 <script>
+import UserService from "../services/users.js"
+
 export default {
-name: "Home"
+  name: "Home",
+  data : () => ({
+    infos: [],
+    url: process.env.VUE_APP_API,
+
+  }),
+  methods: {
+  },
+  mounted () {
+    UserService.get_hello_world()
+    .then(response => {
+      console.log(response.data)
+      this.infos = response.data
+    })
+  }
 }
+
 </script>
 
 <style scoped>
