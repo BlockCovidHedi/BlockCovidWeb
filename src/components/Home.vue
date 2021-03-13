@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{this.infos}} </h2>
+    <h2 class="text-center">{{this.infos}} </h2>
     <p> L'application qui vaincra le Covid-19</p>
   </div>
 </template>

@@ -49,11 +49,11 @@ export default {
         password:this.password,
         role:this.role,
         name:this.input_name,
+        phone_number:this.phone,
       };
       if(this.role=='doctor') {
         newUser.first_name=this.firstname;
         newUser.inami=this.inami;
-        newUser.phone_number = this.phone;
       }
       UserService.add_user(newUser)
       .then(response => {
