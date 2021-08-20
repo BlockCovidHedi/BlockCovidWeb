@@ -22,7 +22,7 @@ export default {
     Users.getAll()
         .then(response => {
           this.current_user = response.data.user
-          this.infos = response.data.doctor
+          this.infos = response.data.infos
         })
         .catch(error => {
           console.log(error)

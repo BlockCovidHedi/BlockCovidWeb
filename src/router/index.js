@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from "@/components/Home";
 import Form from "@/components/Form";
-import Login from "@/components/Login";
 import Connected from "@/components/Connected";
+import About from "@/components/About";
 
 Vue.use(VueRouter)
 
@@ -14,12 +14,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/signin',
-    name: 'Connexion',
-    component: Login
-
-  },
-  {
     path: '/signup',
     name: 'Inscription',
     component: Form
@@ -28,7 +22,13 @@ const routes = [
     path: '/connected',
     name: 'Connecté',
     component: Connected
-  }
+  },
+  {
+    path: '/about',
+    name: 'A propos',
+    component: About
+
+  },
 ]
 
 const router = new VueRouter({
@@ -38,13 +38,13 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next)=> {
-  const publicPages = ['/signin', '/signup', '/']
+  const publicPages = ['/signup', '/', '/about']
   const authRequired = !publicPages.includes(to.path);
-  const authNonRequired = publicPages.includes(to.path)
+  const authNonRequired = publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 
   if(authRequired && !loggedIn) {
-    return next('/signin')
+    return next('/')
   }
   if(authNonRequired && loggedIn) {
     return next('/connected')

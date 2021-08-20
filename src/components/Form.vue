@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="text-center">
     <h2> Page d'inscription </h2>
+    <div class="mt-5"/>
     <form @submit="addNewUser">
       <p>
         <label for="role">Rôle: </label>
@@ -9,6 +10,7 @@
             v-model="role"
             name="role"
         >
+          <option disabled selected value> -- Choisissez un rôle -- </option>
           <option value="doctor">Médecin</option>
           <option value="establishment">Etablissement</option>
         </select>
